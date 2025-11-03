@@ -1,4 +1,4 @@
-console.log("Digital Detox Quiz script loaded");
+console.log("Digital Detox Quiz - Social Project Loaded");
 
 const questions = [
     {
@@ -86,8 +86,9 @@ const questions = [
 let currentQuestionIndex = 0;
 let totalPoints = 0;
 
+// Main Functions
 window.startQuiz = function() {
-    console.log("startQuiz called");
+    console.log("Starting Digital Detox Quiz");
     currentQuestionIndex = 0;
     totalPoints = 0;
     showScreen('quiz-screen');
@@ -129,20 +130,23 @@ window.showResult = function() {
     if (totalPoints <= 7) {
         result = {
             title: "The Phone Lover 📱",
-            description: "You and your phone are best friends! It's the center of your day. Try a small challenge: turn off notifications for one app or leave your phone in your bag during one class.",
-            emoji: "❤️"
+            description: "Your phone is the center of your daily routine. Don't worry - small changes can make a big difference in your focus and studies!",
+            emoji: "❤️",
+            level: "low"
         };
     } else if (totalPoints <= 14) {
         result = {
             title: "The Balanced User ⚖️",
-            description: "Good job! You use your phone, but you control it. Sometimes it distracts you, but you know how to have a balance. Try to find one new good habit, like no-phone meals.",
-            emoji: "⚖️"
+            description: "You have a good balance but sometimes get distracted. With a few adjustments, you can optimize your phone usage for better academic performance.",
+            emoji: "⚖️",
+            level: "medium"
         };
     } else {
         result = {
             title: "The Digital Detox Master 🌱",
-            description: "Excellent! You are in control of your technology. You know how to live in the moment and use your phone with purpose. You are a great example for other students!",
-            emoji: "🌱"
+            description: "Excellent! You're in control of your technology. Share your habits with friends and help others achieve digital balance.",
+            emoji: "🌱",
+            level: "high"
         };
     }
     
@@ -151,9 +155,54 @@ window.showResult = function() {
     document.getElementById('result-emoji').textContent = result.emoji;
     document.getElementById('score-value').textContent = totalPoints + "/" + maxPoints;
     
+    showEducationalTips(result.level);
     showScreen('result-screen');
 };
 
+// Educational Content
+window.showEducationalTips = function(level) {
+    const tips = {
+        low: [
+            "📵 No-phone meals - Focus on food and company",
+            "🔕 Turn off non-essential notifications for 4 hours daily",
+            "📚 Phone-free study sessions - Use Pomodoro technique",
+            "🌙 Charge phone in another room overnight",
+            "🚶‍♂️ Walk without phone - Enjoy surroundings",
+            "📖 Read physical books before sleep",
+            "🎯 Set app time limits for social media"
+        ],
+        medium: [
+            "⏰ Designated phone times - Check only at specific hours",
+            "🎓 Phone in bag during lectures - Better concentration",
+            "📱 Delete one distracting app for a week",
+            "👥 Phone-free social meetings - Quality time with friends",
+            "🌅 Morning routine without phone - First 30 minutes",
+            "📊 Track screen time weekly - Set reduction goals",
+            "🎮 Replace phone time with hobbies or sports"
+        ],
+        high: [
+            "🌟 Mentor others - Share your digital balance tips",
+            "📱 Organize phone-free events with friends",
+            "💡 Create personal digital detox challenges",
+            "🎯 Teach phone hygiene to classmates",
+            "📚 Start a study group with phone-free rules",
+            "🌱 Lead by example - Show benefits of digital minimalism",
+            "🚀 Innovate new ways to stay productive offline"
+        ]
+    };
+    
+    const userTips = tips[level];
+    const tipsContainer = document.getElementById('educational-tips');
+    
+    let tipsHTML = '';
+    userTips.forEach(tip => {
+        tipsHTML += `<div class="tip-item">${tip}</div>`;
+    });
+    
+    tipsContainer.innerHTML = tipsHTML;
+};
+
+// Utility Functions
 window.showScreen = function(screenId) {
     document.querySelectorAll('.screen').forEach(screen => {
         screen.classList.remove('active');
@@ -164,3 +213,20 @@ window.showScreen = function(screenId) {
 window.restartQuiz = function() {
     showScreen('start-screen');
 };
+
+window.shareQuiz = function() {
+    const url = "https://safin3010-commits.github.io/EnglishQuiz";
+    if (navigator.share) {
+        navigator.share({
+            title: 'Digital Detox Quiz',
+            text: 'Check your phone habits and get personalized detox tips!',
+            url: url
+        });
+    } else {
+        navigator.clipboard.writeText(url).then(() => {
+            alert('Link copied to clipboard! Share with your friends.');
+        });
+    }
+};
+
+console.log("Digital Detox Quiz initialized successfully");
