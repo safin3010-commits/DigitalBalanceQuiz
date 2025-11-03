@@ -86,7 +86,6 @@ const questions = [
 let currentQuestionIndex = 0;
 let totalPoints = 0;
 
-// Объявляем функции глобально
 window.startQuiz = function() {
     console.log("startQuiz called");
     currentQuestionIndex = 0;
@@ -122,6 +121,7 @@ window.selectAnswer = function(points) {
         showResult();
     }
 };
+
 window.showResult = function() {
     let result;
     const maxPoints = 20;
@@ -149,7 +149,7 @@ window.showResult = function() {
     document.getElementById('result-title').textContent = result.title;
     document.getElementById('result-description').textContent = result.description;
     document.getElementById('result-emoji').textContent = result.emoji;
-    document.getElementById('score-value').textContent = totalPoints + "/" + maxPoints + " points";
+    document.getElementById('score-value').textContent = totalPoints + "/" + maxPoints;
     
     showScreen('result-screen');
 };
@@ -164,5 +164,3 @@ window.showScreen = function(screenId) {
 window.restartQuiz = function() {
     showScreen('start-screen');
 };
-
-console.log("All functions defined");
