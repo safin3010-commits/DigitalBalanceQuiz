@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4a8073ea-5e47-4398-a0e0-7a4183cbe544" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/EnglishProject.iml" afterDir="false" />
