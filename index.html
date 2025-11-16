@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Detox Quiz for Students</title>
+    <title>Digital Balance Quiz for Students</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="icon">📱</div>
-            <h1>Digital Detox Challenge</h1>
-            <p class="subtitle">Take control of your phone habits. Improve your focus and studies!</p>
+            <h1>Digital Balance Quiz</h1>
+            <p class="subtitle">Find your perfect balance between screen time and real life</p>
         </header>
 
         <!-- Start Screen -->
         <div id="start-screen" class="screen active">
             <div class="problem-info">
-                <h2>Why Digital Detox?</h2>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">6+</span>
-                        <span class="stat-text">hours daily on phone</span>
+                <h2>Why Digital Balance Matters?</h2>
+                <div class="features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span class="feature-text">Better Focus</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">87%</span>
-                        <span class="stat-text">check phone in class</span>
+                    <div class="feature-item">
+                        <span class="feature-icon">😴</span>
+                        <span class="feature-text">Quality Sleep</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">45%</span>
-                        <span class="stat-text">lower concentration</span>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span class="feature-text">More Energy</span>
                     </div>
                 </div>
-                <p class="problem-description">Smartphone addiction affects studies, sleep, and real communication. Take this quiz to understand your habits and get personalized solutions.</p>
+                <p class="problem-description">In our digital world, finding balance is key to success and well-being. Discover your habits and learn to use technology mindfully.</p>
             </div>
-            <button onclick="startQuiz()" class="btn start-btn">Start Digital Detox Quiz</button>
+            <button onclick="startQuiz()" class="btn start-btn">Start Balance Quiz</button>
         </div>
 
         <!-- Quiz Screen -->
@@ -51,29 +51,29 @@
             <div class="result-icon" id="result-emoji"></div>
             <h2 id="result-title"></h2>
             <p id="result-description"></p>
-            <div class="score">Your awareness score: <span id="score-value"></span></div>
+            <div class="score">Your balance score: <span id="score-value"></span></div>
             
             <!-- Educational Block -->
             <div class="educational-block">
-                <h3>🎯 Your Personal Digital Detox Plan</h3>
+                <h3>🎯 Your Personal Balance Plan</h3>
                 <div class="tips-container" id="educational-tips"></div>
                 <div class="challenge-box">
-                    <h4>7-Day Detox Challenge</h4>
-                    <p>Try one tip each day. Small changes make big differences!</p>
+                    <h4>7-Day Balance Challenge</h4>
+                    <p>Try one tip each day for a week!</p>
                     <div class="challenge-days">
-                        <span class="day">Mon</span>
-                        <span class="day">Tue</span>
-                        <span class="day">Wed</span>
-                        <span class="day">Thu</span>
-                        <span class="day">Fri</span>
-                        <span class="day">Sat</span>
-                        <span class="day">Sun</span>
+                        <span class="day">1</span>
+                        <span class="day">2</span>
+                        <span class="day">3</span>
+                        <span class="day">4</span>
+                        <span class="day">5</span>
+                        <span class="day">6</span>
+                        <span class="day">7</span>
                     </div>
                 </div>
             </div>
 
             <div class="action-buttons">
-                <button onclick="restartQuiz()" class="btn">Retest Yourself</button>
+                <button onclick="restartQuiz()" class="btn">Test Again</button>
                 <button onclick="shareQuiz()" class="btn secondary">Share with Friends</button>
             </div>
         </div>
