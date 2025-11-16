@@ -87,15 +87,15 @@ let currentQuestionIndex = 0;
 let totalPoints = 0;
 
 // Main Functions
-window.startQuiz = function() {
+function startQuiz() {
     console.log("Starting Digital Balance Quiz");
     currentQuestionIndex = 0;
     totalPoints = 0;
     showScreen('quiz-screen');
     showQuestion();
-};
+}
 
-window.showQuestion = function() {
+function showQuestion() {
     const question = questions[currentQuestionIndex];
     document.getElementById('question-text').textContent = question.question;
     document.getElementById('current-question').textContent = currentQuestionIndex + 1;
@@ -110,9 +110,9 @@ window.showQuestion = function() {
         button.onclick = () => selectAnswer(answer.points);
         answersContainer.appendChild(button);
     });
-};
+}
 
-window.selectAnswer = function(points) {
+function selectAnswer(points) {
     totalPoints += points;
     currentQuestionIndex++;
     
@@ -121,9 +121,9 @@ window.selectAnswer = function(points) {
     } else {
         showResult();
     }
-};
+}
 
-window.showResult = function() {
+function showResult() {
     let result;
     const maxPoints = 20;
     
@@ -157,10 +157,10 @@ window.showResult = function() {
     
     showEducationalTips(result.level);
     showScreen('result-screen');
-};
+}
 
 // Educational Content
-window.showEducationalTips = function(level) {
+function showEducationalTips(level) {
     const tips = {
         low: [
             "🎯 Study Mode: Turn on 'Do Not Disturb' during online classes",
@@ -200,21 +200,21 @@ window.showEducationalTips = function(level) {
     });
     
     tipsContainer.innerHTML = tipsHTML;
-};
+}
 
 // Utility Functions
-window.showScreen = function(screenId) {
+function showScreen(screenId) {
     document.querySelectorAll('.screen').forEach(screen => {
         screen.classList.remove('active');
     });
     document.getElementById(screenId).classList.add('active');
-};
+}
 
-window.restartQuiz = function() {
+function restartQuiz() {
     showScreen('start-screen');
-};
+}
 
-window.shareQuiz = function() {
+function shareQuiz() {
     const url = window.location.href;
     if (navigator.share) {
         navigator.share({
@@ -227,6 +227,6 @@ window.shareQuiz = function() {
             alert('Link copied to clipboard! Share with your friends.');
         });
     }
-};
+}
 
 console.log("Digital Balance Quiz initialized successfully");
